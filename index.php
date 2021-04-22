@@ -43,8 +43,9 @@ if (isset($_SESSION['name']) ) {
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Zhong Shan Hui</title>
-		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<title>Zhong Shan Hui</title>
+	<link href="https://adminlte.io/themes/AdminLTE/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://adminlte.io/themes/AdminLTE/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css"/> 
 	</head>
 	<body>
 		<div class="container">
@@ -77,7 +78,7 @@ if (isset($_SESSION['name']) ) {
 					<p>No rows found</p>
 				<?php else : ?>
 					<p>
-						<table class="table">
+						<table id="Table" class="table">
 							<thead>
 								<tr>
 									<th>Make</th>
@@ -110,5 +111,24 @@ if (isset($_SESSION['name']) ) {
 
 			<?php endif; ?>	
 		</div>
+    <script type="text/javascript" src="https://adminlte.io/themes/AdminLTE/bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="https://adminlte.io/themes/AdminLTE/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://adminlte.io/themes/AdminLTE/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="http://adminlte.io/themes/AdminLTE/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.5/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.html5.min.js"></script>		
+    <script>
+    $(document).ready( function () {
+        $('#Table').dataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            'excel',  'pdf'
+        ]
+    });
+    });
+    </script>
 	</body>
 </html>
